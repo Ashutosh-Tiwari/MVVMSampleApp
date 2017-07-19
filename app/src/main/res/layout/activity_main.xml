@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.model.Employee" />
+
+        <import type="com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.viewmodel.EmployeeViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="employee"
+            type="Employee" />
+
+        <variable
+            name="employee_view_model"
+            type="EmployeeViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        tools:context="com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.MainActivity">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_employee_name"
+            android:text="@{employee.name}" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/checkbox_android" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/checkbox_ios" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_contact"
+            android:text="@{employee.contact}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> employee_view_model.onRegisterClicked(employee)}"
+            android:text="@string/button_register" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{employee.isRegistered ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/textview_hint_reg_id"
+                android:text="@{employee.id}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/textview_hint_name"
+                android:text="" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/textview_hint_skill"
+                android:text="@{employee.skill}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/textview_hint_contact"
+                android:text="@{employee.contact}" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>
+

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Employee Registration MVVM Demo</string>
+    <string name="hint_employee_name">Enter Employee Name</string>
+    <string name="checkbox_android">Android</string>
+    <string name="checkbox_ios">IOS</string>
+    <string name="hint_contact">Enter Contact Number</string>
+    <string name="textview_hint_name">Your Name</string>
+    <string name="textview_hint_skill">Your skill</string>
+    <string name="textview_hint_reg_id">Registration Id</string>
+    <string name="textview_hint_contact">Your contact</string>
+    <string name="button_register">Register</string>
+</resources>
