@@ -1,75 +1,67 @@
 package com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.model;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
-
-import com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.BR;
+import java.util.Random;
 
 /**
  * Created by Ashutosh.tiwari on 19/07/17.
+ * Simple POJO Model
  */
 
-public class Employee extends BaseObservable {
+public class Employee {
 
-    private int id;
+    private String id;
     private String name;
     private String skill;
-    private long contact;
+    private String contact;
     private boolean isRegistered;
 
-    public Employee(int id, String name, long contact) {
+ /*   public Employee(String id, String name, String contact) {
         this.id = id;
         this.name = name;
         this.contact = contact;
-    }
+    }*/
 
-    @Bindable
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
-        notifyPropertyChanged(BR.id);
     }
 
-    @Bindable
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-        notifyPropertyChanged(BR.name);
     }
 
-    @Bindable
     public String getSkill() {
         return skill;
     }
 
     public void setSkill(String skill) {
         this.skill = skill;
-        notifyPropertyChanged(BR.skill);
     }
 
-    @Bindable
-    public long getContact() {
+    public String getContact() {
         return contact;
     }
 
-    public void setContact(long contact) {
+    public void setContact(String contact) {
         this.contact = contact;
-        notifyPropertyChanged(BR.contact);
     }
 
-    @Bindable
     public boolean isRegistered() {
         return isRegistered;
     }
 
     public void setRegistered(boolean registered) {
         isRegistered = registered;
-        notifyPropertyChanged(BR.registered);
+    }
+
+    public void generateId() {
+        id = String.valueOf(new Random(3));
     }
 }

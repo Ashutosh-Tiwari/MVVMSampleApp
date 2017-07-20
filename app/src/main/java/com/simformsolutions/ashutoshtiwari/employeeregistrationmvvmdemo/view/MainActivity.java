@@ -1,24 +1,23 @@
-package com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo;
+package com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.view;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
+import com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.R;
 import com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.databinding.ActivityMainBinding;
-import com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.model.Employee;
 import com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.viewmodel.EmployeeViewModel;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
-    private Employee employee;
-    private EmployeeViewModel viewModel;
+    public ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EmployeeViewModel viewModel = new EmployeeViewModel(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.setEmployee(employee);
-        binding.setEmployee_view_model(viewModel);
+        binding.setEmployeeViewModel(viewModel);
     }
 }

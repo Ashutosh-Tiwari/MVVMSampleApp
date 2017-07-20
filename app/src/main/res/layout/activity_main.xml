@@ -4,18 +4,10 @@
 
     <data>
 
-        <import type="com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.model.Employee" />
-
         <import type="com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.viewmodel.EmployeeViewModel" />
 
-        <import type="android.view.View" />
-
         <variable
-            name="employee"
-            type="Employee" />
-
-        <variable
-            name="employee_view_model"
+            name="employeeViewModel"
             type="EmployeeViewModel" />
 
     </data>
@@ -25,67 +17,69 @@
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:orientation="vertical"
-        tools:context="com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.MainActivity">
+        tools:context="com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.view.MainActivity">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_employee_name"
-            android:text="@{employee.name}" />
+            android:text="@={employeeViewModel.name}" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
+            android:onClick="@{() -> employeeViewModel.checkChanged(1)}"
             android:text="@string/checkbox_android" />
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
+            android:onClick="@{() -> employeeViewModel.checkChanged(2)}"
             android:text="@string/checkbox_ios" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_contact"
-            android:text="@{employee.contact}" />
+            android:text="@={employeeViewModel.contact}" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> employee_view_model.onRegisterClicked(employee)}"
+            android:onClick="@{() -> employeeViewModel.onRegisterClicked()}"
             android:text="@string/button_register" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="@{employee.isRegistered ? View.VISIBLE : View.GONE}">
+            android:visibility="@{employeeViewModel.registered}">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/textview_hint_reg_id"
-                android:text="@{employee.id}" />
+                android:text="@{employeeViewModel.id}" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/textview_hint_name"
-                android:text="" />
+                android:text="@{employeeViewModel.name}" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/textview_hint_skill"
-                android:text="@{employee.skill}" />
+                android:text="@{employeeViewModel.skill}" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/textview_hint_contact"
-                android:text="@{employee.contact}" />
+                android:text="@{employeeViewModel.contact}" />
         </LinearLayout>
     </LinearLayout>
 </layout>
