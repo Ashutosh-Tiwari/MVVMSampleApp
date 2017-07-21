@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * Created by Ashutosh.tiwari on 19/07/17.
- * Simple POJO Model
+ * Simple POJO Model to store or retrieve attributes specific to an Employee
  */
 
 public class Employee {
@@ -14,12 +14,6 @@ public class Employee {
     private String skill;
     private String contact;
     private boolean isRegistered;
-
- /*   public Employee(String id, String name, String contact) {
-        this.id = id;
-        this.name = name;
-        this.contact = contact;
-    }*/
 
     public String getId() {
         return id;

@@ -12,7 +12,7 @@ import com.simformsolutions.ashutoshtiwari.employeeregistrationmvvmdemo.model.Em
 
 /**
  * Created by Ashutosh.tiwari on 19/07/17.
- * View Model
+ * View Model class for wrapping the model and exposing the data to the attached view(s)
  */
 
 public class EmployeeViewModel extends BaseObservable {
@@ -21,13 +21,11 @@ public class EmployeeViewModel extends BaseObservable {
 
     private Employee employee = new Employee();
 
-    public EmployeeViewModel() {
-    }
-
     public EmployeeViewModel(Context context) {
         this.context = context;
     }
 
+    //Custom getters annd setters for fetching or storing the model data
     @Bindable
     public String getId() {
         return employee.getId();
@@ -68,13 +66,17 @@ public class EmployeeViewModel extends BaseObservable {
         return employee.isRegistered();
     }
 
-
+    //Register the employee by creating an id
     public void onRegisterClicked() {
+        /*
+         This if is not required in case when we don't want to store the values or maintain the state
+         This is just for the fact that we can entertain such functioning in future
+         */
         if (!employee.isRegistered()) {
             employee.generateId();
-            Toast.makeText(context, "Registration successfull!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Registration successful!", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "User already exists! Check details again", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "User already exists! Check details again.", Toast.LENGTH_SHORT).show();
         }
         employee.setRegistered(true);
         notifyPropertyChanged(BR.registered);
@@ -89,6 +91,10 @@ public class EmployeeViewModel extends BaseObservable {
         }
     }
 
+    /**
+     * Custom converter for changing the type of the attribute
+     * in our case to fetch the visibility value based on the changing value of the boolean isRegistered [in XML]
+     */
     @BindingConversion
     public static int setVisibility(boolean visibility) {
         return visibility ? View.VISIBLE : View.GONE;
